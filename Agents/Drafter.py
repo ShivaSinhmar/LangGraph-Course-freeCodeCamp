@@ -80,7 +80,7 @@ def our_agent(state: AgentState) -> AgentState:
     if hasattr(response, "tool_calls") and response.tool_calls:
         print(f"🔧 USING TOOLS: {[tc['name'] for tc in response.tool_calls]}")
 
-    return {"messages": list(state["messages"]) + [user_message, response]}
+    return {"messages": [user_message, response]}
 
 
 def should_continue(state: AgentState) -> str:
